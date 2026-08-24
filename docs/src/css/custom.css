@@ -1,0 +1,51 @@
+/**
+ * Catppuccin-flavored theme — same palette as the terminal recording in the
+ * main repo's README (docs/demo.tape uses "Catppuccin Mocha"), so the docs
+ * site reads as the same project as the demo GIF.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap');
+
+:root {
+  /* Catppuccin Latte (light mode) */
+  --ifm-color-primary: #8839ef;
+  --ifm-color-primary-dark: #7a2fd9;
+  --ifm-color-primary-darker: #742cce;
+  --ifm-color-primary-darkest: #5f24a9;
+  --ifm-color-primary-light: #9650f1;
+  --ifm-color-primary-lighter: #9c5cf2;
+  --ifm-color-primary-lightest: #b380f5;
+  --ifm-code-font-size: 90%;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ifm-heading-font-family: 'JetBrains Mono', var(--ifm-font-family-base);
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme='dark'] {
+  /* Catppuccin Mocha (dark mode) */
+  --ifm-color-primary: #cba6f7;
+  --ifm-color-primary-dark: #b988f4;
+  --ifm-color-primary-darker: #b07af3;
+  --ifm-color-primary-darkest: #9950ef;
+  --ifm-color-primary-light: #ddc4f9;
+  --ifm-color-primary-lighter: #e2ccfa;
+  --ifm-color-primary-lightest: #f0e3fd;
+
+  --ifm-background-color: #1e1e2e;
+  --ifm-background-surface-color: #181825;
+  --ifm-navbar-background-color: #181825;
+  --ifm-footer-background-color: #11111b;
+  --ifm-toc-border-color: #313244;
+  --ifm-color-emphasis-300: #45475a;
+
+  --docusaurus-highlighted-code-line-bg: rgba(203, 166, 247, 0.15);
+}
+
+[data-theme='dark'] code {
+  background-color: #313244;
+}
+
+.navbar__title,
+.footer {
+  font-family: var(--ifm-font-family-monospace);
+}
