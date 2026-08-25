@@ -135,7 +135,9 @@ main { position: relative; z-index: 1; }
   border-radius: 8px;
   padding: 0.85rem 1rem;
   margin-bottom: 2rem;
+  cursor: pointer;
 }
+.install:hover { border-color: var(--accent); }
 
 .install__scroll {
   display: flex;
@@ -344,7 +346,26 @@ main { position: relative; z-index: 1; }
   min-width: 0;
   font-size: 0.82rem;
   padding: 0.65rem 0.85rem;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.15s;
 }
+.install-option pre:hover,
+.install-option pre:focus-visible { border-color: var(--accent); }
+.install-option pre::after {
+  content: 'click to copy';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-size: 0.7rem;
+  font-family: var(--sans);
+  color: var(--muted);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.install-option pre:hover::after,
+.install-option pre:focus-visible::after { opacity: 1; }
+.install-option pre.copied::after { content: 'copied!'; color: var(--ok); opacity: 1; }
 .install-option p { flex: 1 1 auto; margin: 0; font-size: 0.9rem; color: var(--muted); }
 .install-req { color: var(--muted); font-size: 0.9rem; }
 
