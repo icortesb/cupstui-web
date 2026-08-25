@@ -5,7 +5,18 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'cupstui',
   tagline: 'A terminal interface for CUPS',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
+
+  headTags: [
+    {
+      tagName: 'link',
+      attributes: {rel: 'alternate icon', href: '/cupstui-web/docs/img/favicon.ico'},
+    },
+    {
+      tagName: 'link',
+      attributes: {rel: 'apple-touch-icon', href: '/cupstui-web/docs/img/apple-touch-icon.png'},
+    },
+  ],
 
   future: {
     v4: true,
