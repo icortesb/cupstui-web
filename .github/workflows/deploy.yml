@@ -37,7 +37,7 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p site/docs
-          cp -r web-root/. site/
+          cp -r landing/. site/
           cp -r docs/build/. site/docs/
 
       - uses: actions/configure-pages@v5

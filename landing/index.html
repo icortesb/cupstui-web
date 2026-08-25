@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cupstui — a terminal interface for CUPS</title>
+<meta name="description" content="Watch the print queue, cancel and hold jobs, manage printers, send files, set quotas, read the daemon logs and export usage reports — without leaving the terminal.">
+<meta property="og:title" content="cupstui — a terminal interface for CUPS">
+<meta property="og:description" content="Watch the print queue, cancel and hold jobs, manage printers, send files, set quotas, read the daemon logs and export usage reports — without leaving the terminal.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/demo.gif">
+<meta name="theme-color" content="#0d1016">
+<link rel="icon" href="assets/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="noise" aria-hidden="true"></div>
+
+<header class="nav">
+  <a class="nav__brand" href="#top">
+    <span class="nav__prompt">$</span> cupstui
+  </a>
+  <nav class="nav__links">
+    <a href="docs/">Docs</a>
+    <a href="https://github.com/icortesb/cupstui/releases">Releases</a>
+    <a href="https://github.com/icortesb/cupstui">GitHub</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <p class="hero__kicker">for CUPS, in the terminal</p>
+    <h1 class="hero__title">
+      Print queues<br>
+      without leaving<br>
+      <span class="hero__gradient">the terminal.</span>
+    </h1>
+    <p class="hero__lede">
+      Watch the queue, hold and cancel jobs, enable printers, send files,
+      set quotas, read the daemon logs and export usage reports — one
+      keyboard, no browser tab.
+    </p>
+
+    <div class="install" role="group" aria-label="Install command">
+      <div class="install__scroll">
+        <span class="install__prompt">$</span>
+        <code id="install-cmd">curl -fsSL https://raw.githubusercontent.com/icortesb/cupstui/main/scripts/install.sh | sh</code>
+      </div>
+      <button class="install__copy" id="copy-btn" type="button" aria-label="Copy install command">copy</button>
+    </div>
+
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href="docs/getting-started/installation">Get started</a>
+      <a class="btn btn--ghost" href="https://github.com/icortesb/cupstui">View on GitHub</a>
+    </div>
+  </section>
+
+  <section class="demo">
+    <div class="terminal">
+      <div class="terminal__bar">
+        <span class="dot dot--red"></span>
+        <span class="dot dot--yellow"></span>
+        <span class="dot dot--green"></span>
+        <span class="terminal__title">cupstui</span>
+      </div>
+      <img class="terminal__gif" src="assets/demo.gif" alt="Recording of cupstui: the print queue tab with a scoped filter, then the printers tab." width="1140" height="520" loading="eager">
+    </div>
+  </section>
+
+  <section class="features">
+    <h2 class="section-title">Six tabs, one binary</h2>
+    <div class="grid">
+      <article class="card">
+        <p class="card__tag">1</p>
+        <h3>Queue</h3>
+        <p>Live job list, refreshed every three seconds. Hold, release, cancel one job or every job — the tab carries the count.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">2</p>
+        <h3>Printers</h3>
+        <p>Enable, disable, set a default, accept or reject jobs. Add and remove queues, set per-printer quotas and access.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">3</p>
+        <h3>Print</h3>
+        <p>Browse to a file and send it. Copies, page ranges, duplex, colour and orientation, all from the keyboard.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">4</p>
+        <h3>History</h3>
+        <p>Completed jobs from the CUPS page log — the durable record. Totals by user and by printer, exported to CSV.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">5</p>
+        <h3>Logs</h3>
+        <p>The daemon logs, filtered by minimum level, jumped straight to the end when something just went wrong.</p>
+      </article>
+      <article class="card">
+        <p class="card__tag">6</p>
+        <h3>Remote</h3>
+        <p>Sign in to a server elsewhere with <code>S</code>. Encryption and certificate verification, same as the CUPS command line tools.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="filter">
+    <h2 class="section-title">One filter, every screen</h2>
+    <p class="filter__lede">
+      The queue and the history take the same query. A bare term is looked
+      for everywhere; a prefixed one is scoped to a single field. Terms
+      combine, and every one must match.
+    </p>
+    <pre class="filter__example"><code>printer:epson user:ana state:held</code></pre>
+  </section>
+
+  <section class="keys">
+    <h2 class="section-title">Keys that stay put</h2>
+    <p class="keys__lede">Every screen paints the full terminal width. Text fields keep their keys instead of losing them to global shortcuts.</p>
+    <div class="keycap-row">
+      <span class="keycap">1</span><span class="keycap">–</span><span class="keycap">6</span>
+      <span class="keycap-label">switch tab</span>
+    </div>
+    <div class="keycap-row">
+      <span class="keycap">j</span><span class="keycap">k</span>
+      <span class="keycap-label">move</span>
+    </div>
+    <div class="keycap-row">
+      <span class="keycap">/</span>
+      <span class="keycap-label">filter</span>
+    </div>
+    <div class="keycap-row">
+      <span class="keycap">S</span>
+      <span class="keycap-label">sign in to a remote server</span>
+    </div>
+    <div class="keycap-row">
+      <span class="keycap">?</span>
+      <span class="keycap-label">help, right there in the app</span>
+    </div>
+    <a class="keys__more" href="docs/usage/keys">Full key reference →</a>
+  </section>
+
+  <section class="install-full">
+    <h2 class="section-title">Install</h2>
+    <div class="install-grid">
+      <div class="install-option">
+        <h3>Script</h3>
+        <pre><code>curl -fsSL https://raw.githubusercontent.com/icortesb/cupstui/main/scripts/install.sh | sh</code></pre>
+      </div>
+      <div class="install-option">
+        <h3>Go</h3>
+        <pre><code>go install github.com/icortesb/cupstui/cmd/cupstui@latest</code></pre>
+      </div>
+      <div class="install-option">
+        <h3>Source</h3>
+        <pre><code>git clone https://github.com/icortesb/cupstui
+cd cupstui &amp;&amp; make build</code></pre>
+      </div>
+      <div class="install-option">
+        <h3>Tarball</h3>
+        <p>Grab the build for your architecture from <a href="https://github.com/icortesb/cupstui/releases">releases</a> and put it on your <code>PATH</code>.</p>
+      </div>
+    </div>
+    <p class="install-req">Requires CUPS, running. Nothing else. <a href="docs/getting-started/requirements">Permissions →</a></p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__row">
+    <span>MIT licensed.</span>
+    <div class="footer__links">
+      <a href="docs/">Docs</a>
+      <a href="https://github.com/icortesb/cupstui">GitHub</a>
+      <a href="https://github.com/icortesb/cupstui/releases">Releases</a>
+      <a href="https://github.com/icortesb/cupstui/issues">Issues</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
