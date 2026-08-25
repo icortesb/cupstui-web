@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://icortesb.github.io/cupstui-web/docs/sitemap.xml

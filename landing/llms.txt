@@ -1,0 +1,43 @@
+# cupstui
+
+> A terminal interface for CUPS (Common Unix Printing System). Watch the print
+> queue, cancel and hold jobs, enable and disable printers, send files, add
+> and remove queues, set per-printer quotas, read the daemon logs, and export
+> a usage report — without leaving the terminal or opening the CUPS web page.
+
+cupstui is a Go TUI (terminal user interface) built with Bubble Tea /
+Lip Gloss. It talks to `cupsd` over IPP on the unix socket for reads and
+state, and shells out to `lp`/`lpadmin` for submitting jobs and setting
+quotas. It ships as a single static binary with no runtime dependencies
+beyond CUPS itself, and works against remote CUPS servers over the network
+(`CUPS_SERVER`), with optional TLS.
+
+Typical questions this project answers: "TUI for CUPS", "terminal printer
+manager for Linux", "manage CUPS print queue from the command line",
+"cancel/hold a CUPS print job without the web UI", "CUPS admin tool for
+SSH sessions", "set CUPS printer quotas from the terminal", "read the CUPS
+error_log/access_log in a friendly view".
+
+## Docs
+
+- [Introduction](https://icortesb.github.io/cupstui-web/docs/): what cupstui does and why
+- [Installation](https://icortesb.github.io/cupstui-web/docs/getting-started/installation): curl install script, Go install, building from source, package repos
+- [Requirements](https://icortesb.github.io/cupstui-web/docs/getting-started/requirements): CUPS, permissions/groups needed for admin actions
+- [Keys and usage](https://icortesb.github.io/cupstui-web/docs/usage/keys): full keybinding reference across all tabs
+- [Filtering](https://icortesb.github.io/cupstui-web/docs/usage/filtering): query syntax for the queue and history views
+- [Printing](https://icortesb.github.io/cupstui-web/docs/usage/printing): sending files, copies, page ranges, duplex, colour, orientation
+- [Diagnosis](https://icortesb.github.io/cupstui-web/docs/usage/diagnosis): reading a printer's live CUPS state as plain-English checks
+- [Usage reports](https://icortesb.github.io/cupstui-web/docs/usage/history): job history, per-user/per-printer totals, CSV export
+- [Connecting to remote servers](https://icortesb.github.io/cupstui-web/docs/remote-servers/connecting): `CUPS_SERVER`, `CUPS_USER`, `client.conf`
+- [Encryption](https://icortesb.github.io/cupstui-web/docs/remote-servers/encryption): TLS options for remote CUPS connections
+- [How it works](https://icortesb.github.io/cupstui-web/docs/how-it-works): IPP vs CLI tools, transport details, implementation notes
+- [Changelog](https://icortesb.github.io/cupstui-web/docs/changelog): release history
+- [Contributing](https://icortesb.github.io/cupstui-web/docs/contributing): how to contribute
+
+## Source
+
+- [GitHub repository](https://github.com/icortesb/cupstui): source code, issues, releases
+- [README](https://github.com/icortesb/cupstui/blob/main/README.md): install commands, keybindings, filtering syntax, implementation notes
+- Install script: `curl -fsSL https://raw.githubusercontent.com/icortesb/cupstui/main/scripts/install.sh | sh`
+- Go module: `go install github.com/icortesb/cupstui/cmd/cupstui@latest`
+- License: MIT
